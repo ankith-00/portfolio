@@ -49,7 +49,7 @@ export default function Status() {
         transition={{ delay: 5.3 }}
         style={{ margin: 0, fontSize: "3cqw"}}
       >
-        AVAILABLE&nbsp; FOR &nbsp;OPPORTUNITES
+        OPEN&nbsp; TO &nbsp;OPPORTUNITIES
       </motion.p>
     </motion.div>
   );
