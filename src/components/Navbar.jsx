@@ -1,81 +1,72 @@
-import { Drawer } from "vaul";
-import { Link } from "react-router-dom";
-
-import { RiMenu4Fill } from "react-icons/ri";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
-import "../App.css";
 
 export default function Navbar() {
-  return (
-    <div className="nav-container">
-      <nav>
-        <div className="box">
-          <h2 className="logo">ANKITH</h2>
+    const openInNewTab = (url) => {
+        window.open(url, '_blank', 'noreferrer');
+    };
+
+    return (
+        <div style={NavContainer}>
+            <nav style={NavBar}>
+                <div>
+                    <h2 style={LogoText}>ANKITH</h2>
+                </div>
+
+                <div>
+                    <button
+                        style={ConnectBtn}
+                        onClick={() => openInNewTab('mailto:ankith7800@gmail.com')}
+                    >connect</button>
+                </div>
+            </nav>
         </div>
-
-        <Drawer.Root>
-            <div className="box">
-            <Drawer.Trigger className="drawer-trigger">
-                <RiMenu4Fill size={30} color="#fff"/>
-            </Drawer.Trigger>
-            </div>
-
-            <Drawer.Portal>
-                {/* DRAWER - OVERLAY */}
-                <Drawer.Overlay className="drawer-overlay" />
-                    <Drawer.Content className="drawer-content">
-                    <div className="drawer-handle" /> 
-                    <div className="drawer-body">
-                        <Drawer.Title className="drawer-title"> </Drawer.Title>
-                        <div className="drawer-nav-links">
-
-
-                            <Link className="link">
-                                Home
-                                <div className="arrow">
-                                    <MdOutlineKeyboardArrowRight size={23}/>
-                                </div>
-                            </Link>
-
-                            <Link className="link">
-                                Skills
-                                <div className="arrow">
-                                    <MdOutlineKeyboardArrowRight size={23}/>
-                                </div>
-                            </Link>
-
-
-                            <Link className="link">
-                                Projects
-                                <div className="arrow">
-                                    <MdOutlineKeyboardArrowRight size={23}/>
-                                </div>
-                            </Link>
-
-                            <Link className="link">
-                                Experinece
-                                <div className="arrow">
-                                    <MdOutlineKeyboardArrowRight size={23}/>
-                                </div>
-                            </Link>
-
-                            <Link className="link">
-                                Experties
-                                <div className="arrow">
-                                    <MdOutlineKeyboardArrowRight size={23}/>
-                                </div>
-                            </Link>
-
-
-                            <button>Let's Connect</button>
-                        </div>
-                    </div>
-                    </Drawer.Content>
-            </Drawer.Portal>
-
-        </Drawer.Root>
-      </nav>
-    </div>
-  );
+    );
 }
+
+
+const NavContainer = {
+    width: "100%",
+    height: "fit-content",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "0.95em 0.2em 0 0.2em",
+    position: "fixed",
+    top: "0em",
+    zIndex: "5",
+}
+
+const NavBar = {
+    width: "97%",
+    padding: "0.5em 0.7em",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    color: "#fff",
+    background: "#53535336",
+    boxShadow: "0 4px 30px #0000001a",
+    backdropFilter: "blur(6px)",
+    WebkitBackdropFilter: "blur(6px)",
+    borderTop: "1px solid #3e3d3d54",
+    borderRadius: "1.4em"
+}
+
+const LogoText = {
+    fontSize: "0.95em",
+    fontFamily: "var(--code-font)",
+    fontWeight: "800",
+    letterSpacing: "1px",
+    paddingLeft: "0.2em"
+}
+
+const ConnectBtn = {
+    fontSize: "1em",
+    fontFamily: "var(--code-font)",
+    padding: "0.7em 1.8em",
+    border: "none",
+    borderRadius: "0.8em",
+    background: "#7a787836",
+    color: "#fff",
+    boxShadow: "0 6px 30px #1818181a",
+    backdropFilter: "blur(6px)",
+    WebkitBackdropFilter: "blur(6px)",
+};

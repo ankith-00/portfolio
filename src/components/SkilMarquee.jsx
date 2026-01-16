@@ -21,6 +21,7 @@ import { FaGitAlt } from "react-icons/fa";
 import { FaDocker } from "react-icons/fa6";
 import { SiReactquery } from "react-icons/si";
 
+
 export default function SkillsMarquee({ speed = 15 }) {
     const skills = [
         { name: "JavaScript", icon: IoLogoJavascript },
@@ -30,17 +31,17 @@ export default function SkillsMarquee({ speed = 15 }) {
         { name: "HTML", icon: FaHtml5 },
         { name: "CSS", icon: FaCss3Alt },
         { name: "Tailwind", icon: RiTailwindCssFill },
-        { name: "Shadcn", icon: SiShadcnui},
+        { name: "Shadcn", icon: SiShadcnui },
         { name: "Python", icon: FaPython },
-        { name: "Streamlit", icon: SiStreamlit},
+        { name: "Streamlit", icon: SiStreamlit },
         { name: "FastAPI", icon: SiFastapi },
-        { name: "Flask", icon: SiFlask  },
+        { name: "Flask", icon: SiFlask },
         { name: "MongoDB", icon: DiMongodb },
-        { name: "Supabase", icon: RiSupabaseFill  },
+        { name: "Supabase", icon: RiSupabaseFill },
         { name: "Postgress", icon: BiLogoPostgresql },
-        { name: "Git", icon: FaGitAlt},
-        { name: "Docker", icon: FaDocker },  
-        { name: "GASZ", icon: SiGoogleappsscript },  
+        { name: "Git", icon: FaGitAlt },
+        { name: "Docker", icon: FaDocker },
+        { name: "GAS", icon: SiGoogleappsscript },
     ];
 
     // Splitting skills into two distinct groups
@@ -51,47 +52,71 @@ export default function SkillsMarquee({ speed = 15 }) {
     const renderRow = (rowSkills) => (
         <div style={{ display: "flex", gap: "2em", paddingRight: "2em" }}>
             {rowSkills.map((skill, index) => (
-                <SkillBadge 
-                    key={index} 
-                    BadgeName={skill.name} 
-                    IconName={skill.icon} 
+                <SkillBadge
+                    key={index}
+                    BadgeName={skill.name}
+                    IconName={skill.icon}
                 />
             ))}
         </div>
     );
 
     return (
-        <div style={containerStyle}>
-            <div style={leftBlackShadow} />
+        <div style={SkillsContainer}>
+            <h4 style={H4}>SKILLS</h4>
+            {/* SKILL MARQUEE CONTAINER */}
+            <div style={containerStyle}>
+                <div style={leftBlackShadow} />
 
-            {/* ROW 1 : MOVES LEFT (Displays First Half) */}
-            <motion.div 
-                style={rowStyle}
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{ ease: "linear", duration: speed, repeat: Infinity }}
-            >
-                {/* We render the SAME group twice for a perfect loop */}
-                {renderRow(firstGroup)}
-                {renderRow(firstGroup)}
-            </motion.div>
+                {/* ROW 1 : MOVES LEFT (Displays First Half) */}
+                <motion.div
+                    style={rowStyle}
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{ ease: "linear", duration: speed, repeat: Infinity }}
+                >
+                    {/* We render the SAME group twice for a perfect loop */}
+                    {renderRow(firstGroup)}
+                    {renderRow(firstGroup)}
+                </motion.div>
 
-            {/* ROW 2 : MOVES RIGHT (Displays Second Half) */}
-            <motion.div 
-                style={{ ...rowStyle, marginTop: "2em" }}
-                animate={{ x: ["-50%", "0%"] }}
-                transition={{ ease: "linear", duration: speed, repeat: Infinity }}
-            >
-                {/* We render the SAME group twice for a perfect loop */}
-                {renderRow(secondGroup)}
-                {renderRow(secondGroup)}
-            </motion.div>
+                {/* ROW 2 : MOVES RIGHT (Displays Second Half) */}
+                <motion.div
+                    style={{ ...rowStyle, marginTop: "2em" }}
+                    animate={{ x: ["-50%", "0%"] }}
+                    transition={{ ease: "linear", duration: speed, repeat: Infinity }}
+                >
+                    {/* We render the SAME group twice for a perfect loop */}
+                    {renderRow(secondGroup)}
+                    {renderRow(secondGroup)}
+                </motion.div>
 
-            <div style={rightBlackShadow} />
+                <div style={rightBlackShadow} />
+            </div>
         </div>
     );
 }
 
+
+
+
 // CSS STYLES (No changes made to your naming or logic)
+const SkillsContainer = {
+    width: "100%",
+    backgroundColor: "#09090B",
+    overflowX: "hidden",
+    overflowY: "hidden",
+    marginBottom: "1em",
+}
+
+const H4 = {
+    width: "100%",
+    color: "#fff",
+    fontFamily: "var(--secondary-font)",
+    fontSize: "1.3em",
+    padding: "0 0 0em 0.8em",
+    fontWeight: "500",
+}
+
 const containerStyle = {
     width: "100%",
     backgroundColor: "#09090B",
@@ -99,11 +124,11 @@ const containerStyle = {
     overflowY: "hidden",
     position: "relative",
     padding: "40px 0",
-    display: "block",   
+    display: "block",
 };
 
 const rowStyle = {
-    display: "flex", 
+    display: "flex",
     width: "max-content",
     userSelect: "none",
 };

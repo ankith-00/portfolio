@@ -1,37 +1,37 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, steps } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-import Mobile  from './components/Mobile'
-import Desktop  from './components/Desktop'
+import Mobile from './screens/Mobile';
+import Desktop from './screens/Desktop';
 
 import "./App.css"
 
 // GREETING - TEXT ARRAY
-const words = [ "HELLO", "नमस्ते", "ನಮಸ್ಕಾರ", "నమస్కారం", "வணக்கம்", "നമസ്കാരം", "HOLA", "Привет", "BONJOUR" ];
+const words = ["HELLO", "नमस्ते", "ನಮಸ್ಕಾರ", "నమస్కారం", "வணக்கம்", "നമസ്കാരം", "HOLA", "Привет", "BONJOUR"];
 
 
 // APP COMPONENT
-export default function App(){
+export default function App() {
 
   const [isPhone, setPhone] = useState(window.innerWidth <= 480);
   const [overlay, setOverlay] = useState(true);
   const [index, setIndex] = useState(0);
 
   // DEVICE WIDTH USE-EFFECT
-  useEffect(()=>{
-    const handleResize = ()=>{
+  useEffect(() => {
+    const handleResize = () => {
       setPhone(window.innerWidth <= 480);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  },[]);
+  }, []);
 
 
   // GREETING OVERFLAY
   useEffect(() => {
-    const timer = setTimeout(() =>{
+    const timer = setTimeout(() => {
       setOverlay(false);
-    }, 4500); 
+    }, 4500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -47,32 +47,32 @@ export default function App(){
 
   // UI
   return (
-    <> 
+    <>
       {/* GREETING - OVERLAY */}
       <AnimatePresence>
         {
           overlay && (
-            <motion.div 
+            <motion.div
               className="overlay-container"
               key="main-overlay"
-              initial={{ 
-                opacity: 1 
+              initial={{
+                opacity: 1
               }}
-              exit={{ 
-                opacity: 0, 
-                transition: { 
-                  duration: 0.8, 
-                  ease: "easeInOut" 
-                } 
+              exit={{
+                opacity: 0,
+                transition: {
+                  duration: 0.8,
+                  ease: "easeInOut"
+                }
               }}
             >
-              
+
               {/* GREETING - TEXT */}
               <AnimatePresence mode="popLayout">
                 <motion.h1
                   key={words[index]}
-                  initial={{ 
-                    opacity: 0, y: 20 
+                  initial={{
+                    opacity: 0, y: 20
                   }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
@@ -94,7 +94,7 @@ export default function App(){
 
 
       {/* MAIN CONTENT */}
-      {isPhone ? ( <Mobile/> ) : ( <Desktop/> )}
+      {isPhone ? (<Mobile />) : (<Desktop />)}
 
     </>
   )

@@ -1,9 +1,9 @@
 import Social from "./Social";
 
 
-export default function Connect(){
-    
-    return(
+export default function Connect() {
+
+    return (
         <div style={{
             width: "100%",
             display: "flex",
@@ -18,35 +18,36 @@ export default function Connect(){
                 width: "95%",
                 display: "flex",
                 flexDirection: "column",
-                gap:"0.5em",
+                gap: "0.5em",
                 textAlign: "center",
                 fontFamily: "var(--primary-font)",
             }}>
                 <h2>Let's Connect</h2>
-                <p style={{lineHeight: "1.5em"}}>Partner with me to evolve your raw ideas into a powerful, revenue-generating product</p>
+                <p style={{ lineHeight: "1.5em", fontSize: "4cqw" }}>Partner with me to evolve your raw ideas into a powerful, revenue-generating product</p>
 
             </div>
 
-                <Social/>
+            <Social />
 
-                <div style={{
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap:"0.5em",
-                    textAlign: "center",
-                    fontFamily: "var(--primary-font)",
-                    paddingBottom: "0.5em",
-                    
-                }}>
-                    <hr color="#fff"/>
+            <div style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.7em",
+                textAlign: "center",
+                fontFamily: "var(--primary-font)",
+                paddingBottom: "1em",
 
-                    <p style={{
-                        fontFamily: "var(--code-font)",
-                        fontSize: "0.8em",
-                    }}>COPYRIGHT - {new Date().getFullYear()} BY ANKITH.DEV</p>
+            }}>
+                <hr color="#fff" />
 
-                </div>
+                <p style={{
+                    fontFamily: "var(--code-font)",
+                    fontSize: "3cqw",
+                    color: "#7e7d7d",
+                }}>// COPYRIGHT - {new Date().getFullYear()} BY ANKITH.DEV</p>
+
+            </div>
 
         </div>
 
@@ -55,7 +56,7 @@ export default function Connect(){
 
 
 const container = {
-    
+
 
 }
 

@@ -1,77 +1,130 @@
+// FRAMER MOTION
+import { motion } from "framer-motion";
 
+// ICONS
 import { MdDeviceHub } from "react-icons/md";
 import { IoLogoGithub } from "react-icons/io";
+
+// COMPONENT
 import Card from "./Card";
 
 
+// UI
+export default function Projects() {
 
-export default function Projects(){
-
-    return(
+    return (
         <div style={container}>
-            
+
             {/* CARDS CONTAINER */}
             <div style={L2Container}>
                 <h4 style={H4}>PROJECTS</h4>
 
-                {/* CARD 1 */}
-                <div style={PCards}>
-                    <div className="plus p-top-left">       </div>
-                    <div className="plus p-top-right">      </div>
-                    
-                    <Card
-                        CardLabelName="CLIENT PROJECT"            
-                        CardLabelBGClr="#3a3a3aff"
-                        CardLabelBorderClr="#3a3a3aff"
-                        CardLabelTextClr="#fff"
-                        CardLabelIcon={MdDeviceHub} 
-                        CardTitle="Study-Trackr" 
-                        CDescription="An attendance app using GPS to securely verify student and faculty locations for real-time check-ins." 
-                        TSN1="Vite + React" 
-                        TSN2="Sheet" 
-                        TSN3="GAS" 
-                        LinkNote="LIVE&nbsp; DEMO" 
-                        CLink="https://study-trackr-voi.vercel.app" 
-                        BGCLR="#31313233"
-                    
-                    />
+                {/* CARD 1 : DOC-PRINT */}
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
 
-                </div>
+                    style={PCards}>
 
 
-                {/* CARD 2 */}
-                {/* <div style={SecondPCards} >
-                    <div className="plus p-top-left">       </div>
-                    <div className="plus p-top-right">      </div>
-    
-                </div> */}
-
-
-                {/* CARD 3 */}
-                <div style={PCards}>
                     <div className="plus p-top-left">       </div>
                     <div className="plus p-top-right">      </div>
                     <div className="plus p-bottom-left">    </div>
                     <div className="plus p-bottom-right">   </div>
-
                     <Card
-                        CardLabelName="PERSONAL"            
+                        CardHeight="50vh"
+                        CardLabelName="PERSONAL"
                         CardLabelBGClr="#3a3a3aff"
                         CardLabelBorderClr="#3a3a3aff"
                         CardLabelTextClr="#fff"
-                        CardLabelIcon={MdDeviceHub} 
-                        CardTitle="Doc Print" 
-                        CDescription="It is a webapp that lets xerox shops print documents without saving them on local computer. This keeps customer files private and helps stop misuse.." 
-                        TSN1="Express" 
-                        TSN2="Supabase" 
-                        TSN3="Python" 
-                        LinkNote="LIVE&nbsp; DEMO" 
-                        CLink="https://doc-print.onrender.com" 
+                        CardLabelIcon={MdDeviceHub}
+                        CardTitle="Doc Print"
+                        CDescription="This web application enables xerox shops to print documents directly without storing them on local computers, ensuring customer privacy and preventing file misuse."
+                        TSN1="Express"
+                        TSN2="Supabase"
+                        TSN3="Python"
+                        LinkNote="LIVE&nbsp; DEMO"
+                        CLink="https://doc-print.onrender.com"
                         BGCLR="#31313233"
-                    
                     />
+                </motion.div>
 
-                </div>
+
+                {/* CARD 2 : FETCHBOT T5 */}
+                {/* <div style={PCards}>
+                    <div className="plus p-top-left">       </div>
+                    <div className="plus p-top-right">      </div>
+                    <div className="plus p-bottom-left">    </div>
+                    <div className="plus p-bottom-right">   </div>
+                    <Card
+                        CardHeight="50vh"
+                        CardLabelName="CLIENT"
+                        CardLabelBGClr="#3a3a3aff"
+                        CardLabelBorderClr="#3a3a3aff"
+                        CardLabelTextClr="#fff"
+                        CardLabelIcon={IoLogoGithub}
+                        CardTitle="fetchbot t5"
+                        CDescription="."
+                        TSN1="FastAPI"
+                        TSN2="MongoDB"
+                        TSN3="T5Model"
+                        LinkNote="GITHUB REPO"
+                        CLink="https://doc-print.onrender.com"
+                        BGCLR="#31313233"
+                    />
+                </div> */}
+
+
+                {/* CARD 3 : MINIURL */}
+                {/* <div style={PCards}>
+                    <div className="plus p-top-left">       </div>
+                    <div className="plus p-top-right">      </div>
+                    <div className="plus p-bottom-left">    </div>
+                    <div className="plus p-bottom-right">   </div>
+                    <Card
+                        CardHeight="50vh"
+                        CardLabelName="PERSONAL"
+                        CardLabelBGClr="#3a3a3aff"
+                        CardLabelBorderClr="#3a3a3aff"
+                        CardLabelTextClr="#fff"
+                        CardLabelIcon={IoLogoGithub}
+                        CardTitle="miniurl api"
+                        CDescription="."
+                        TSN1="Express"
+                        TSN2="MongoDB"
+                        TSN3="Github"
+                        LinkNote="GITHUB REPO"
+                        CLink="https://doc-print.onrender.com"
+                        BGCLR="#31313233"
+                    />
+                </div> */}
+
+
+                {/* CARD 4 : GHIBLI LENSE */}
+                {/* <div style={PCards}>
+                    <div className="plus p-top-left">       </div>
+                    <div className="plus p-top-right">      </div>
+                    <div className="plus p-bottom-left">    </div>
+                    <div className="plus p-bottom-right">   </div>
+                    <Card
+                        CardHeight="50vh"
+                        CardLabelName="CLIENT"
+                        CardLabelBGClr="#3a3a3aff"
+                        CardLabelBorderClr="#3a3a3aff"
+                        CardLabelTextClr="#fff"
+                        CardLabelIcon={IoLogoGithub}
+                        CardTitle="ghibli lense"
+                        CDescription="."
+                        TSN1="FastAPI"
+                        TSN2="Supabase"
+                        TSN3="HFModel"
+                        LinkNote="GITHUB REPO"
+                        CLink="https://doc-print.onrender.com"
+                        BGCLR="#31313233"
+                    />
+                </div> */}
 
             </div>
         </div>
@@ -79,15 +132,16 @@ export default function Projects(){
 }
 
 
+
 // CSS
 const container = {
     width: "100%",
     height: "fit-content",
-    marginTop :"1em",
+    marginTop: "1em",
     paddingBottom: "4em",
     display: "flex",
     flexDirection: "column",
-    justifyContent:"space-around",
+    justifyContent: "space-around",
     alignItems: "center",
 }
 
@@ -110,16 +164,11 @@ const H4 = {
 const PCards = {
     position: "relative",
     width: "100%",
-    height: "50vh",
+    height: "52vh",
     padding: "0.5em",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     border: "0.5px solid #171616ff",
-}
-
-const SecondPCards = {
-    ...PCards,
-    borderTop: "none",
-    BorderBottom: "none",
+    // marginBottom: "4em"
 }
